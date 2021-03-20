@@ -2,6 +2,8 @@
 
 For running PlatEmo's SMS-EMOA with DBMOPP_generator run `platemo('algorithm',@SMSEMOA,'problem',@DBMOPP);`.
 
+After running `main`, you can use `zeros(size(theta,2),1); for iterations = 1:size(theta,3); HVS(iterations) = PD(objval(N*(iterations-1)+1:N*iterations,:),pf); end;` in command window to test various metrics. `PD` can be replaced with `IGD`, `GD`, `PD`, `HV`, `DeltaP`. (DeltaP is avg Hausdorff)
+
 
 ## Copyright
 > The Copyright of the PlatEMO belongs to the BIMK group. You are free to [use the PlatEMO](https://github.com/BIMK/PlatEMO/releases) for **research purposes**. All publications which use this platform or any code in the platform should **acknowledge the use of "PlatEMO" and reference** _"Ye Tian, Ran Cheng, Xingyi Zhang, and Yaochu Jin, PlatEMO: A MATLAB Platform for Evolutionary Multi-Objective Optimization [Educational Forum], IEEE Computational Intelligence Magazine, 2017, 12(4): 73-87"._  
