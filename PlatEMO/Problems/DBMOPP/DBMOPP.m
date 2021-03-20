@@ -4,13 +4,13 @@ classdef DBMOPP < PROBLEM
     end
     methods
         %% Initialization
-        function obj = DBMOPP()
+        function obj = DBMOPP(varargin)
             
             if isempty(obj.M)
                 obj.M = 3;
             end
             if isempty(obj.D)
-                obj.D = obj.M + 4;
+                obj.D = 3;
             end
             obj.lower    = zeros(1,obj.D);
             obj.upper    = ones(1,obj.D);
