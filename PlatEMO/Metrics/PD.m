@@ -14,13 +14,13 @@ function score = PD(Population,~)
 % Computational Intelligence Magazine, 2017, 12(4): 73-87".
 %--------------------------------------------------------------------------
 
-    PopObj = Population.best.objs;
+    PopObj = Population;
     if isempty(PopObj)
         score = nan;
     else
         C = false(length(Population));
         C(logical(eye(size(C)))) = true;
-        D = pdist2(Population.objs,Population.objs,'minkowski',0.1);
+        D = pdist2(Population,Population,'minkowski',0.1);
         D(logical(eye(size(D)))) = inf;
         score = 0;
         for k = 1 : length(Population)-1
