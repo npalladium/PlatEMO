@@ -1,7 +1,9 @@
 clear; clc; close all;
 
-theta = linspace(0.1,1000,2);
-N = 100;
+runs = 10;
+
+theta = linspace(0.1,1000,runs);
+N = 91;
 objval = zeros(N*size(theta,2),3);
 for iterations=1:size(theta,2)
     [~,objval(N*(iterations-1)+1:N*iterations,:),~] = platemo('algorithm',{@SMSEMOA,1,theta(iterations)},'problem',@DBMOPPa,'M',3,'D',3,'N',N);
@@ -21,4 +23,8 @@ for iterations = 1:size(theta,3)
     HVS(iterations) = HV(objval(N*(iterations-1)+1:N*iterations,:),pf);
 end
 
+problem1 = platemo('algorithm',{@SMSEMOA,1,theta(iterations)},'problem',@DBMOPPa,'M',3,'D',3,'N',N);
+problem2 = platemo('algorithm',{@SMSEMOA,1,theta(iterations)},'problem',@DBMOPPa,'M',3,'D',3,'N',N, 'maxFE',20000);
 
+indicator1 = HV(problem1,pf)
+indicator2 = HV(problem2,pf)
